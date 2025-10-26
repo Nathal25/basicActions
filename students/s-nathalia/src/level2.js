@@ -4,12 +4,13 @@ function sumEvenNumbers(array){
 }
 //this function receives a string and converts all vowels to uppercase
 function convertVowelsToUpperCase(text){
-  var vowel='';
-  for (var i=0; i<text.length; i++){
+  let vowel='';
+  for (let i=0; i<text.length; i++){
     vowel = text.charAt(i);
     if (vowel == 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u'){
       text = text.replace(vowel, vowel.toUpperCase());
-    }}
+    }
+  }
   return text;
 }
 
