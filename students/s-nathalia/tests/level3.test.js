@@ -19,6 +19,6 @@ describe('Level 3 – Advanced Functions', () => {
     test('longestCommonSubsequence: should return the common subsequence between two strings', () => {
         expect(longestCommonSubsequence('abcdef', 'acdf')).toBe('acdf');
         expect(longestCommonSubsequence('AGGTAB', 'GXTXAYB')).toBe('GTAB');
-        expect(longestCommonSubsequence('hello', 'world')).toBe('o' || 'l');
+        expect(longestCommonSubsequence('hello', 'world')).toMatch(/^[ol]$/);
     });
 });
