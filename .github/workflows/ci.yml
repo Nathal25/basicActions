@@ -7,23 +7,42 @@ on:
     branches: [main]
 
 jobs:
-  # 🧪 Runs only during Pull Requests
   test:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run tests
+      - name: Run ESLint (code quality check)
+        run: npm run lint
+        continue-on-error: false
+
+      - name: Run Unit Tests
         run: npm test
 
-  # 🚀 Runs only after merge (push to main)
+      - name: Run Tests with Coverage
+        run: npm run test:coverage
+
+      - name: Check Coverage Threshold (80%)
+        run: |
+          echo "📊 Checking coverage threshold..."
+          npm run test:coverage -- --coverageThreshold='{"global":{"branches":80,"functions":80,"lines":80,"statements":80}}'
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7
+
   ready-for-production:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
@@ -32,7 +51,5 @@ jobs:
         run: |
           echo "✅ All tests passed successfully!"
           echo "🚀 The code has been merged into MAIN."
-          echo "🌐 The project is now ready for the next stage: production deployment!"
-
-
-
+          echo "🎯 Coverage threshold met (80%+)"
+          echo "🌐 Project ready for production! 🚀"

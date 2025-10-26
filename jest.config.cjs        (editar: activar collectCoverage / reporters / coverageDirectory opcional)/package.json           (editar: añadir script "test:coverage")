@@ -1,0 +1,16 @@
+collectCoverage: true,
+reporters: [
+  "default",
+  ["jest-junit", { outputDirectory: "./coverage" }]
+],
+coverageDirectory: "coverage"
+
+{
+  "scripts": {
+    "test:coverage": "jest --coverage"
+  }
+}
+
+test('hello world!', () => {
+  expect('hello world').toBe('hello world');
+});
