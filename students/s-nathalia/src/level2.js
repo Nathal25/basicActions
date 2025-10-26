@@ -10,9 +10,6 @@ function convertVowelsToUpperCase(text){
         if (vowel == 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u'){
             text = text.replace(vowel, vowel.toUpperCase());
         }
-        else{
-            continue;
-        }
     }
     return text;
 }
