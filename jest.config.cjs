@@ -1,11 +1,12 @@
 module.exports = {
   testEnvironment: "node",
-  testMatch: ["<rootDir>/students/**/tests/**/*.test.js"],
+  testMatch: ["**/students/**/tests/**/*.test.js"],
   collectCoverageFrom: [
     "students/**/src/**/*.js",
-    "!**/node_modules/**"
+    "!**/node_modules/**",
+    "!**/coverage/**"
   ],
-  collectCoverage: false, // Se activa con --coverage flag
+  collectCoverage: false,
   coverageDirectory: "coverage",
   coverageReporters: ["text", "lcov", "html", "json-summary"],
   coverageThreshold: {
@@ -15,5 +16,7 @@ module.exports = {
       lines: 80,
       statements: 80
     }
-  }
+  },
+  verbose: true,
+  testTimeout: 10000
 };
