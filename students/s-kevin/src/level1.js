@@ -6,7 +6,7 @@
  */
 function medianSk(numbers) {
   if (!Array.isArray(numbers)) return null;
-  const vals = numbers.filter(n => typeof n === 'number' && Number.isFinite(n)).slice().sort((a, b) => a - b);
+  const vals = numbers.filter(n => typeof n === 'number' && Number.isFinite(n)).sort((a, b) => a - b);
   const len = vals.length;
   if (len === 0) return null;
   const mid = Math.floor(len / 2);

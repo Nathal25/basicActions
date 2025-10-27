@@ -16,7 +16,7 @@ describe('Level 1 – Nuevas funciones (s-kevin)', () => {
     expect(sumPositivesSk('no-array')).toBe(0);
   });
 
-  test('firstNonRepeatingCharSk: retorna primer caracter no repetido', () => {
+  test('firstNonRepeatingCharSk: retorna primer carácter no repetido', () => {
     expect(firstNonRepeatingCharSk('stress')).toBe('t');
     expect(firstNonRepeatingCharSk('sTreSS')).toBe('T');
     expect(firstNonRepeatingCharSk('aabbcc')).toBeNull();

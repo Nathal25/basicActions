@@ -9,7 +9,7 @@ function toTitleCaseSk(text) {
     .replace(/\s+/g, ' ')
     .toLowerCase()
     .split(' ')
-    .map(w => w ? w[0].toUpperCase() + w.slice(1) : '')
+    .map(w => w[0].toUpperCase() + w.slice(1))
     .join(' ');
 }
 
