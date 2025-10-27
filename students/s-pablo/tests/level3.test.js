@@ -1,7 +1,5 @@
-// level3.test.js
 const { deepClone, sumNestedNumbers, findPaths } = require('../src/level3');
 
-// Tests para deepClone
 describe('deepClone', () => {
   test('debe clonar objetos anidados sin mantener referencia', () => {
     const original = { a: 1, b: { c: 2 } };
@@ -18,7 +16,6 @@ describe('deepClone', () => {
   });
 });
 
-// Tests para sumNestedNumbers
 describe('sumNestedNumbers', () => {
   test('debe sumar todos los números en una estructura anidada', () => {
     const data = [1, [2, { a: 3, b: [4, 5] }]];
@@ -30,11 +27,10 @@ describe('sumNestedNumbers', () => {
   });
 });
 
-// Tests para findPaths
 describe('findPaths', () => {
   const obj = {
     a: { b: { c: 5 }, d: 5 },
-    e: { f: { g: 5 }, h: 8 },
+    e: { f: { g: 5 }, h: 8 }
   };
 
   test('debe encontrar todas las rutas hacia el valor 5', () => {
@@ -43,7 +39,7 @@ describe('findPaths', () => {
       expect.arrayContaining([
         ['a', 'b', 'c'],
         ['a', 'd'],
-        ['e', 'f', 'g'],
+        ['e', 'f', 'g']
       ])
     );
   });

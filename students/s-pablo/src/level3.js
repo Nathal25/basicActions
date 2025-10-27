@@ -18,7 +18,7 @@ function deepClone(value) {
 
   const cloned = {};
   for (const key in value) {
-    if (value.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(value, key)) {
       cloned[key] = deepClone(value[key]);
     }
   }
@@ -64,7 +64,7 @@ function findPaths(obj, target, currentPath = []) {
   let paths = [];
 
   for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       const value = obj[key];
       const newPath = [...currentPath, key];
 
